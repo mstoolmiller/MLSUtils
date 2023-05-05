@@ -1,0 +1,14 @@
+Package: MLSUtils
+Type: Package
+Title: Collection of personal convenience functions for data inspection
+Version: 0.1.0
+Author: Mike Stoolmiller
+Maintainer: Mike Stoolmiller <mstoolmiller@ori.org>
+Description: Checking missing data patterns, basic descriptive statistics,
+    nesting patterns in heirarchical data, basic plots for univariate
+    distributions and scatter plots, with personal favorite enhancements such
+    as reference lines, scatter plot smoothers, etc.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports: lme4
