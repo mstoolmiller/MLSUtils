@@ -1,3 +1,4 @@
+#This is important function
 alt_axes <- function(i) {
 # i is a subplot counter, from 1 to the total number of subplots = prod(par("mfrow"))
 	# for horizontal axis
