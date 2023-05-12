@@ -3,7 +3,7 @@
 #' These lines provide a verbose description.
 #' This could be multiple lines
 #'
-#' @param i An integer value. A subplot counter, from 1 to the total number of subplots = prod(par("mfrow"))
+#' @param i An integer value. A nice subplot counter, from 1 to the total number of subplots = prod(par("mfrow"))
 #'
 #' @examples
 #' # Some code
