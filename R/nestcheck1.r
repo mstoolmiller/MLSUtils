@@ -12,7 +12,7 @@ nestcheck <- function(data, idvars, check_missing = TRUE) {
 	# Put counts in a table in increasing order
 	tmp1 <- data.frame(idvar = idvars, count = as.numeric(NA))
 	for (i in tmp1$idvar) tmp1[tmp1$idvar == i, "count"] <- length(na.omit(unique(data[, i])))
-	tmp1 <- dplyr::arrange(tmp1, dplyr::desc(count))
+	tmp1 <- dplyr::arrange(tmp1, dplyr::desc(tmp1$count))
 	tmp1 <- rbind(tmp1, data.frame(idvar = "observations", count = nrow(data)))
 	idvars <- tmp1$idvar[-nrow(tmp1)]
 

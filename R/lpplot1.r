@@ -5,8 +5,15 @@ lpplot <- function(mobj.out, pseudo=T, fitted=T, path=NULL, inset = -.05, scale 
 	nclasses <- max(mobj.out$class_counts$modelEstimated$class)
 	if (!is.null(path)) path <- gsub("(/|\\\\)$", "", path)
 
-	## get model fitted latent class tajectories
-	raw_means <- subset(mobj.out$parameters$unstandardized, paramHeader == "Means" & LatentClass != "Categorical.Latent.Variables", c(est, param, LatentClass))
+	raw_means <- mobj.out$parameters$unstandardized [mobj.out$parameters$unstandardized$paramHeader == "Means" &
+	                                                   mobj.out$parameters$unstandardized$LatentClass != "Categorical.Latent.Variables",
+	                                                 c("est", "param", "LatentClass")]
+	## get model fitted latent class trajectories
+
+	# raw_means <- base::subset(mobj.out.df,
+	#                           subset=paramHeader == "Means" & LatentClass != "Categorical.Latent.Variables",
+	#                           select=c(est, param, LatentClass))
+
 	class.means <- reshape(raw_means, direction = "wide", idvar = "param", timevar = "LatentClass", v.names = "est", sep="")
 	nindicators <- nrow(class.means)
 

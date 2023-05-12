@@ -1,9 +1,9 @@
-diplot <- function (data, indvars, text.size = par("cex.lab"), var.labels = names(data), pch = 1, digits = 2, stats = T, point.size = par("cex"), new = T, smooth = T, 
-	straight = T, smooth.line.color = 2, straight.line.color = 3, smooth.line.type = 1, straight.line.type = 1, smooth.line.weight = 3, straight.line.weight = 3, smooth.se = T, 
-    straight.se = T, ...) 
+diplot <- function (data, indvars, text.size = par("cex.lab"), var.labels = names(data), pch = 1, digits = 2, stats = T, point.size = par("cex"), new = T, smooth = T,
+	straight = T, smooth.line.color = 2, straight.line.color = 3, smooth.line.type = 1, straight.line.type = 1, smooth.line.weight = 3, straight.line.weight = 3, smooth.se = T,
+    straight.se = T, ...)
 {
-	 pods <- function(x) exp(x)/(1+exp(x))    
-	 attach(data)
+	 pods <- function(x) exp(x)/(1+exp(x))
+	 #attach(data)  #katia
     if (is.character(indvars)) {
         indvars <- match(indvars, names(data), nomatch = 0)
         if (any(indvars) == 0) stop("Independent variable name not found in variable names of input data")
@@ -32,11 +32,11 @@ diplot <- function (data, indvars, text.size = par("cex.lab"), var.labels = name
             }
             else fglm <- fglm.ci <- NULL
             tmp <- data.frame(na.omit(cbind(data = data[o, j], fglm.fit = fglm$fit, fgam.fit = fgam$fit, fglm.ci, fgam.ci)))
-            if (new) 
+            if (new)
                 plot(data[, j], jitter(data[, i], amount = 0), pch = pch, xlab = var.labels[j], ylab = var.labels[i], cex = point.size, ...)
             if (straight) {
                 points(tmp[, c("data", "fglm.fit")], type = "l", lwd = straight.line.weight, lty = straight.line.type, col = straight.line.color)
-                if (straight.se) 
+                if (straight.se)
                   matpoints(tmp[, "data"], tmp[, c("fglm.lower", "fglm.upper")], type = "l", lty = 2, col = straight.line.color)
             }
             if (pnts > 3 & smooth) {

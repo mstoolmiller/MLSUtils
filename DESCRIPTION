@@ -10,6 +10,13 @@ Description: Checking missing data patterns, basic descriptive statistics,
     as reference lines, scatter plot smoothers, etc.
 License: CC0
 Encoding: UTF-8
-LazyData: true
-Imports: lme4
-
+Imports: 
+    graphics,
+    stats,
+    utils,
+    lattice,
+    dplyr,
+    gam,
+    MplusAutomation,
+    lme4
+RoxygenNote: 7.2.0

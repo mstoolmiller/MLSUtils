@@ -1,1 +1,10 @@
 exportPattern("^[[:alpha:]]+")
+import(graphics)
+import(stats)
+import(utils)
+import(lattice)
+importFrom(dplyr, arrange, desc)
+import(gam)
+import(MplusAutomation)
+
+
